@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-ar-tryon",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark AR Tryon - 3D bounding-box spatial intersection-over-union (IoU 3D), anthropometric sizing fit index, and perspective camera pinhole projection with zero dependencies.",
+  "tools": [
+    "calculate_3d_bounding_box_iou",
+    "evaluate_anthropometric_fit_index",
+    "project_3d_point_to_camera_surface"
+  ]
+}
