@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List, Tuple
 from client import OpenClawGenParkArTryon
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-ar-tryon")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-ar-tryon")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-ar-tryon')
 
 tryon = OpenClawGenParkArTryon()
 
@@ -60,8 +51,7 @@ def project_3d_point_to_camera_surface(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing AR Tryon:")
-    print(calculate_3d_bounding_box_iou([0,0,0], [1,1,1], [0.5,0.5,0.5], [1.5,1.5,1.5]))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
